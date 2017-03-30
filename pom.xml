@@ -1,0 +1,240 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>cart-kitchen-cashier</name>
+    <groupId>fr.unice.polytech.isa</groupId>
+    <artifactId>cart-kitchen-cashier</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>6a9425ac6628-releases</name>
+            <url>http://artifactory.loick.xyz/artifactory/libs-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>6a9425ac6628-snapshots</name>
+            <url>http://artifactory.loick.xyz/artifactory/libs-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>6a9425ac6628-releases</name>
+            <url>http://artifactory.loick.xyz/artifactory/libs-release</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <name>6a9425ac6628-snapshots</name>
+            <url>http://artifactory.loick.xyz/artifactory/libs-snapshot</url>
+        </repository>
+    </repositories>
+
+
+    <properties>
+        <!-- General Properties -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <versions.maven.compiler>3.6.1</versions.maven.compiler>
+        <versions.json>20160810</versions.json>
+        <versions.java>1.8</versions.java>
+        <!-- J2E 7.x technological stack -->
+        <versions.javaee>7.0-1</versions.javaee>
+        <versions.openejb>7.0.2</versions.openejb>
+        <versions.tomee>7.0.2</versions.tomee>
+        <versions.openjpa>2.4.1</versions.openjpa>
+        <versions.myface>2.2.10</versions.myface>
+        <!-- Testing dependencies -->
+        <versions.maven.surefire>2.19.1</versions.maven.surefire>
+        <versions.junit>4.12</versions.junit>
+        <versions.mockito>1.10.19</versions.mockito>
+        <versions.cukespace>1.6.5</versions.cukespace>
+        <versions.arquillian.junit>1.1.12.Final</versions.arquillian.junit>
+        <versions.arquilian.jta>1.0.3.Final</versions.arquilian.jta>
+        <versions.shrinkwrap>2.2.6</versions.shrinkwrap>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>fr.unice.polytech.isa</groupId>
+            <artifactId>entities</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>fr.unice.polytech.isa</groupId>
+            <artifactId>customer-registry</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>fr.unice.polytech.isa</groupId>
+            <artifactId>catalogue</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${versions.json}</version>
+        </dependency>
+        <!-- Dependencies for the OpenEJB framework (provided at runtime by the app server) -->
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${versions.javaee}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>openejb-core</artifactId>
+            <version>${versions.openejb}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>tomee-embedded</artifactId>
+            <version>${versions.tomee}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Dependency to integrate REST clients (order matters for CXF) (provided) -->
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>openejb-cxf</artifactId>
+            <version>${versions.openejb}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>openejb-cxf-rs</artifactId>
+            <version>${versions.openejb}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Dependencies for the JSF framework (provided)-->
+        <dependency>
+            <groupId>org.apache.myfaces.core</groupId>
+            <artifactId>myfaces-api</artifactId>
+            <version>${versions.myface}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Dependencies for the testing frameworks (Junit, Mockito & Arquillian) (tests only) -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${versions.junit}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${versions.mockito}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.cukespace</groupId>
+            <artifactId>cukespace-core</artifactId>
+            <version>${versions.cukespace}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <version>${versions.arquillian.junit}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-depchain</artifactId>
+            <version>${versions.shrinkwrap}</version>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>arquillian-tomee-embedded</artifactId>
+            <version>${versions.tomee}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>general</finalName>
+        <defaultGoal>package</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.openjpa</groupId>
+                <artifactId>openjpa-maven-plugin</artifactId>
+                <version>${versions.openjpa}</version>
+                <configuration>
+                    <includes>**/entities/*.class</includes>
+                    <addDefaultConstructor>true</addDefaultConstructor>
+                    <enforcePropertyRestrictions>true</enforcePropertyRestrictions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>enhancer</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${versions.maven.surefire}</version>
+                <configuration>
+                    <forkMode>always</forkMode>
+                    <!-- otherwise openejb embedded and tomee embedded shares the same context and EJBContainer is broken -->
+                    <reuseForks>false</reuseForks>
+                    <excludes>
+                        <exclude>**/PaymentIntegrationTest.java</exclude>
+                        <exclude>features/*</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <phase>integration-test</phase>
+                        <configuration>
+                            <excludes>
+                                <exclude>**/*Test.java</exclude>
+                            </excludes>
+                            <includes>
+                                <include>**/PaymentIntegrationTest.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${versions.maven.compiler}</version>
+                <configuration>
+                    <source>${versions.java}</source>
+                    <target>${versions.java}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomee.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>${versions.tomee}</version>
+                <configuration>
+                    <!-- From TomEE to TomEE+ to support the web services stack -->
+                    <tomeeClassifier>plus</tomeeClassifier>
+                    <args>-Xmx512m -XX:PermSize=256m</args>
+                    <deployOpenEjbApplication>true</deployOpenEjbApplication>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,8 @@
+/home/loick/projects/scyther/j2e/cart-kitchen-cashier/src/test/java/fr/unice/polytech/isa/tcf/persistence/CascadingTest.java
+/home/loick/projects/scyther/j2e/cart-kitchen-cashier/src/test/java/arquillian/AbstractTCFTest.java
+/home/loick/projects/scyther/j2e/cart-kitchen-cashier/src/test/java/features/OrderingCookies.java
+/home/loick/projects/scyther/j2e/cart-kitchen-cashier/src/test/java/fr/unice/polytech/isa/tcf/business/CashierTest.java
+/home/loick/projects/scyther/j2e/cart-kitchen-cashier/src/test/java/fr/unice/polytech/isa/tcf/persistence/LazyLoadingTest.java
+/home/loick/projects/scyther/j2e/cart-kitchen-cashier/src/test/java/fr/unice/polytech/isa/tcf/business/KitchenTest.java
+/home/loick/projects/scyther/j2e/cart-kitchen-cashier/src/test/java/fr/unice/polytech/isa/tcf/integration/PaymentIntegrationTest.java
+/home/loick/projects/scyther/j2e/cart-kitchen-cashier/src/test/java/fr/unice/polytech/isa/tcf/business/CartTest.java
