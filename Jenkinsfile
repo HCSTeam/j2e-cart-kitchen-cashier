@@ -25,7 +25,7 @@ node {
     
     stage("Deploying to artifactory") {
         withMaven(maven: 'maven'){
-            sh 'mvn clean deploy:deploy'
+            sh 'mvn clean package deploy:deploy'
         }
     }
 }
