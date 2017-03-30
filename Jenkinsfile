@@ -22,10 +22,7 @@ node {
                 maven: 'maven',
                 mavenSettingsConfig: 'maven') {
             sh 'mvn clean package deploy:deploy -DskipTests'
+            archiveArtifacts(artifacts: '**/target/*.jar', fingerprint: true)
         }
-    }
-
-    stage("Fingerprinting"){
-        fingerprint ''
     }
 }
