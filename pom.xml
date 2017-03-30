@@ -11,12 +11,12 @@
 
     <distributionManagement>
         <repository>
-            <id>central</id>
+            <id>artifactory-central</id>
             <name>6a9425ac6628-releases</name>
             <url>http://artifactory.loick.xyz/artifactory/libs-release</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
+            <id>artifactory-snapshots</id>
             <name>6a9425ac6628-snapshots</name>
             <url>http://artifactory.loick.xyz/artifactory/libs-snapshot</url>
         </snapshotRepository>
@@ -24,12 +24,12 @@
 
     <repositories>
         <repository>
-            <id>central</id>
+            <id>artifactory-central</id>
             <name>6a9425ac6628-releases</name>
             <url>http://artifactory.loick.xyz/artifactory/libs-release</url>
         </repository>
         <repository>
-            <id>snapshots</id>
+            <id>artifactory-snapshots</id>
             <name>6a9425ac6628-snapshots</name>
             <url>http://artifactory.loick.xyz/artifactory/libs-snapshot</url>
         </repository>
