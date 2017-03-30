@@ -19,7 +19,7 @@ node {
 
     stage('Unit testing') {
         withMaven(maven: 'maven'){
-            sh 'mvn test'
+            sh 'mvn clean test'
         }
     }
     
@@ -27,7 +27,7 @@ node {
         withMaven(
             maven: 'maven',
             mavenSettingsConfig: 'maven'){
-            sh 'mvn clean package deploy:deploy -DskipTests'
+            sh 'mvn -DskipTests clean package deploy:deploy'
         }
     }
 }
