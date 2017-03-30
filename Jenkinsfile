@@ -2,6 +2,7 @@ node {
     def dockerHome = tool name: "docker"
     env.PATH = "${dockerHome}/bin:${env.PATH}"
 
+
     stage("Checking out") {
         checkout scm
     }
@@ -22,5 +23,9 @@ node {
                 mavenSettingsConfig: 'maven') {
             sh 'mvn clean package deploy:deploy -DskipTests'
         }
+    }
+
+    stage("Fingerprinting"){
+        fingerprint ''
     }
 }
